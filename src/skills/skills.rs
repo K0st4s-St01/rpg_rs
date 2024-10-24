@@ -20,7 +20,7 @@ struct Effect{
     active:bool,
 }
 impl Effect {
-    fn new(name:String,magnitude:i32,active:bool) -> Effect{
+    pub fn new(name:String,magnitude:i32,active:bool) -> Effect{
         Effect{
             name:name,
             magnitude:magnitude,
@@ -73,7 +73,7 @@ pub struct Skill{
     effect:Effect
 }
 impl Skill {
-    fn new(level:i32,skill_category:Skill_category,required_proficiency:i32,effect:Effect) -> Skill{
+    pub fn new(level:i32,skill_category:Skill_category,required_proficiency:i32,effect:Effect) -> Skill{
         Skill { 
             level: level,
             skill_category: skill_category, 
@@ -88,7 +88,7 @@ pub struct Proficiency{
     value:i32,
 }
 impl Proficiency {
-    fn new(category:Skill_category,value:i32) -> Proficiency{
+    pub fn new(category:Skill_category,value:i32) -> Proficiency{
         Proficiency { category: category, value: value }
     }
 }
@@ -106,7 +106,7 @@ pub struct Class{
     profiecencies:[Option<Proficiency>;14]
 }
 impl Class{
-    fn new(name:Class_name)->Class{
+    pub fn new(name:Class_name)->Class{
         let mut proficiences:[Option<Proficiency>;14]=[const { None };14];
         let mut i =0;
         for skill_category in Skill_category::all_skill_categories(){
